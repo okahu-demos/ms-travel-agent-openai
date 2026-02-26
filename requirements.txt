@@ -1,0 +1,7 @@
+agent-framework-azure-ai==1.0.0b260130
+agent-framework-core==1.0.0b260130
+opentelemetry-semantic-conventions==0.60b1
+opentelemetry-semantic-conventions-ai==0.4.13
+openai
+python-dotenv
+monocle-apptrace
