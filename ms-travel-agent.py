@@ -36,7 +36,7 @@ def book_flight(
 def create_assistants_client() -> OpenAIAssistantsClient:
 	model_id = (
 		os.getenv("OPENAI_CHAT_MODEL_ID")
-		or "gpt-4.1-mini"
+		or "gpt-4o-mini"
 	)
 	api_key = os.getenv("OPENAI_API_KEY")
 
