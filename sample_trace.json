@@ -1,0 +1,343 @@
+[{
+    "name": "agent_framework.openai._assistants_client.OpenAIAssistantsClient._inner_get_response",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "75ff99c4bfd36cb0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "aa1b87d932cd428f",
+    "start_time": "2026-02-27T15:09:58.116327Z",
+    "end_time": "2026-02-27T15:10:02.903999Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/.venv/lib/python3.11/site-packages/agent_framework/_clients.py:376",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "inference.azure_openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4.1-mini",
+        "entity.2.type": "model.llm.gpt-4.1-mini",
+        "span.type": "inference",
+        "entity.3.name": "book_flight",
+        "entity.3.type": "tool.microsoft",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "scope.agentic.invocation": "1cc2449278eadbc83a0e9a43de902208",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-02-27T15:09:58.116696Z",
+            "attributes": {
+                "input": "[{'system': 'You are a Flight Booking Assistant. Help users book flights between airports. If key details are missing, ask follow-up questions before booking.'}, {Role(value='user'): 'Also add a return flight on 2026-12-21'}]"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:02.903866Z",
+            "attributes": {
+                "response": "{\"tools\": [{\"tool_id\": \"[\\\"run_ywdcGpQL2rSFIFgYuAhDZADa\\\", \\\"call_n8laSYHwHHVnxvwcPBxp6eQe\\\"]\", \"tool_name\": \"book_flight\", \"tool_arguments\": {\"from_airport\": \"JFK\", \"to_airport\": \"BOM\", \"travel_date\": \"2026-12-21\"}}]}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-02-27T15:10:02.903926Z",
+            "attributes": {
+                "completion_tokens": 0,
+                "prompt_tokens": 0,
+                "total_tokens": 0,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework._tools.FunctionTool.invoke",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "94d93b9866a219c4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "aa1b87d932cd428f",
+    "start_time": "2026-02-27T15:10:02.905957Z",
+    "end_time": "2026-02-27T15:10:02.906304Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/.venv/lib/python3.11/site-packages/agent_framework/_tools.py:1579",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "tool.microsoft",
+        "entity.1.name": "book_flight",
+        "entity.1.description": "Book a flight from one airport to another",
+        "entity.2.name": "Flight Agent",
+        "entity.2.type": "agent.microsoft",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "scope.agentic.invocation": "1cc2449278eadbc83a0e9a43de902208",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "75ff99c4bfd36cb0"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-02-27T15:10:02.906116Z",
+            "attributes": {
+                "input": "{'from_airport': 'JFK', 'to_airport': 'BOM', 'travel_date': '2026-12-21'}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:02.906259Z",
+            "attributes": {
+                "response": "FLIGHT BOOKING CONFIRMED #FL466547: JFK to BOM on 2026-12-21 - $831"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework.openai._assistants_client.OpenAIAssistantsClient._inner_get_response",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "46122867abbc6f11",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "aa1b87d932cd428f",
+    "start_time": "2026-02-27T15:10:02.907814Z",
+    "end_time": "2026-02-27T15:10:06.857308Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/.venv/lib/python3.11/site-packages/agent_framework/_clients.py:376",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "inference.azure_openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4.1-mini",
+        "entity.2.type": "model.llm.gpt-4.1-mini",
+        "span.type": "inference",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "scope.agentic.invocation": "1cc2449278eadbc83a0e9a43de902208",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-02-27T15:10:02.908000Z",
+            "attributes": {
+                "input": "[{'system': 'You are a Flight Booking Assistant. Help users book flights between airports. If key details are missing, ask follow-up questions before booking.'}, {Role(value='tool'): ''}]"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:06.857144Z",
+            "attributes": {
+                "response": "{\"assistant\": \"The return flight from JFK (New York) to BOM (Mumbai) on 2026-12-21 has been successfully booked. If you need any more help, feel free to ask!\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-02-27T15:10:06.857230Z",
+            "attributes": {
+                "completion_tokens": 77,
+                "prompt_tokens": 1011,
+                "total_tokens": 1088,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework.openai._assistants_client.OpenAIAssistantsClient.get_response",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "aa1b87d932cd428f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b404e09220f2583c",
+    "start_time": "2026-02-27T15:09:58.115058Z",
+    "end_time": "2026-02-27T15:10:06.857693Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/.venv/lib/python3.11/site-packages/agent_framework/_agents.py:890",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "agent.microsoft",
+        "entity.1.name": "Flight Agent",
+        "entity.1.description": "gpt-4.1-mini",
+        "last.inference": "46122867abbc6f11:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "scope.agentic.invocation": "1cc2449278eadbc83a0e9a43de902208",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-02-27T15:09:58.115148Z",
+            "attributes": {
+                "input": "Also add a return flight on 2026-12-21"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:06.857641Z",
+            "attributes": {
+                "response": "The return flight from JFK (New York) to BOM (Mumbai) on 2026-12-21 has been successfully booked. If you need any more help, feel free to ask!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "agent_framework.ChatAgent.run",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "b404e09220f2583c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "c5f65eb64de2ba93",
+    "start_time": "2026-02-27T15:09:58.114634Z",
+    "end_time": "2026-02-27T15:10:06.857906Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/ms-travel-agent.py:73",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "agent.microsoft",
+        "monocle.last.agent.invocation.id": "aa1b87d932cd428f",
+        "monocle.last.agent.name": "Flight Agent",
+        "last.inference": "46122867abbc6f11:*",
+        "span.type": "agentic.turn",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "entity.count": 1,
+        "span.subtype": "turn",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-02-27T15:09:58.114712Z",
+            "attributes": {
+                "input": "Also add a return flight on 2026-12-21"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:06.857852Z",
+            "attributes": {
+                "response": "The return flight from JFK (New York) to BOM (Mumbai) on 2026-12-21 has been successfully booked. If you need any more help, feel free to ask!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "2cef7a5fb16ff8dc2e541119d7d2aa69",
+        "span_id": "c5f65eb64de2ba93",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-02-27T15:09:58.114493Z",
+    "end_time": "2026-02-27T15:10:06.857928Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/devika/Desktop/okahu_demo/ms-travel-agent-openai/ms-travel-agent.py:73",
+        "scope.agentic.turn": "3d02efd3624ddb424c1636b818d4677f",
+        "workflow.name": "okahu_demos_microsoft_travel_agent",
+        "span.type": "workflow",
+        "entity.1.name": "okahu_demos_microsoft_travel_agent",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic",
+        "span.subtype": "turn",
+        "scope.agentic.session": "thread_pBZZyPRfgYPwBbVclvyMQyQ1"
+    },
+    "events": [
+        {
+            "name": "data.output",
+            "timestamp": "2026-02-27T15:10:06.857898Z",
+            "attributes": {
+                "response": "The return flight from JFK (New York) to BOM (Mumbai) on 2026-12-21 has been successfully booked. If you need any more help, feel free to ask!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_microsoft_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+]
