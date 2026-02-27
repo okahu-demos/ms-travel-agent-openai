@@ -9,6 +9,8 @@ This repo includes a demo travel assistant built with Microsoft Agent Framework 
 - (Optional) Okahu API key if you want to export traces to Okahu cloud
 - (Optional) Okahu VS Code extension for trace inspection
 
+![Okahu VS Code Extension](images/okahu_extension.png)
+
 ## Get started
 
 ### 1) Create a Python virtual environment
@@ -37,7 +39,13 @@ pip install -r requirements.txt
 
 ### 4) Configure environment
 
-Create a `.env` file in the repo root:
+Copy `.env.example` to `.env` and fill in values:
+
+```bash
+cp .env.example .env
+```
+
+Then configure:
 
 ```dotenv
 OPENAI_API_KEY=<your-openai-api-key>
@@ -57,6 +65,41 @@ python ms-travel-agent.py
 You will get an interactive prompt:
 - Type user requests directly in terminal
 - Type `exit` or `quit` to end the session
+
+## Run tests
+
+Install test dependencies:
+
+```bash
+pip install -r tests/requirements.txt
+```
+
+Run tests with the venv interpreter (recommended):
+
+```bash
+python -m pytest tests/test_ms_travel_agent.py
+```
+
+Using `python -m pytest` ensures pytest uses the same active virtual environment where dependencies are installed.
+
+### What the test validates
+
+The test in `tests/test_ms_travel_agent.py` checks trace-level behavior rather than fixed text output:
+
+- The `Flight Agent` is invoked
+- The `book_flight` tool is invoked
+- Traces are captured correctly for the turn
+
+This is intentional because responses can vary by model/version and user phrasing.
+
+### Expected outcomes
+
+- **Pass**: OpenAI credentials/model are valid and the agent run succeeds.
+- **Skip**: Test auto-skips when OpenAI client initialization fails (missing key/model) or endpoint/model returns 404.
+- **Error at import**: If `monocle_test_tools` is missing, install test deps with `pip install -r tests/requirements.txt`.
+
+![Testing workflow](images/testing.png)
+![Pass/Fail examples](images/pass_fail_test.png)
 
 ## What this demo does
 
@@ -130,8 +173,17 @@ Monocle writes traces to local files (for example under `.monocle/`).
 
 Use the Okahu/Monocle extension to open and inspect generated traces.
 
+![Okahu trace view in VS Code](images/okahu_vs_extension.png)
+
+After opening a trace file in the extension, you can inspect the captured tool calls, agent turn flow, and request/response details for each step.
+
+![Sample trace](images/traces.png)
+
 ## Project files
 
 - `ms-travel-agent.py` — main interactive app
 - `requirements.txt` — Python dependencies
+- `tests/test_ms_travel_agent.py` — async trace-based test for tool/agent invocation
+- `tests/requirements.txt` — test dependencies
+- `.env.example` — safe template for required environment variables
 - `.gitignore` — ignores `.venv/`, `.env`, `.monocle/`
