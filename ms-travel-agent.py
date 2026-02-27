@@ -12,7 +12,7 @@ from monocle_apptrace import setup_monocle_telemetry
 
 # Enable Monocle Tracing
 setup_monocle_telemetry(
-	workflow_name="okahu_demos_microsoft_travel_agent",
+	workflow_name="okahu_demos_ms_openai_travel_agent",
 	monocle_exporters_list="file",
 )
 

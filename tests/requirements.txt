@@ -1,0 +1,3 @@
+pytest
+pytest-asyncio
+monocle-test-tools==0.7.5
