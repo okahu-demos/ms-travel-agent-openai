@@ -59,7 +59,7 @@ Notes:
 ### 5) Run the app
 
 ```bash
-python ms-travel-agent.py
+python ms_travel_agent.py
 ```
 
 You will get an interactive prompt:
@@ -181,7 +181,7 @@ After opening a trace file in the extension, you can inspect the captured tool c
 
 ## Project files
 
-- `ms-travel-agent.py` — main interactive app
+- `ms_travel_agent.py` — main interactive app
 - `requirements.txt` — Python dependencies
 - `tests/test_ms_travel_agent.py` — async trace-based test for tool/agent invocation
 - `tests/requirements.txt` — test dependencies
